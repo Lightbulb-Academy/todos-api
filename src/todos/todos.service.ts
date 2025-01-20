@@ -8,7 +8,7 @@ export class TodosService {
   constructor(private readonly prisma: PrismaClient) {}
 
   async create(createTodoDto: CreateTodoDto) {
-    return this.prisma.todo.create({ data: createTodoDto });
+    return this.prisma.todo.create({ data: { ...createTodoDto, user_id: 1 } });
   }
 
   async findAll() {
